@@ -21,6 +21,6 @@ class ProductsContreller extends Controller
     }
 
     function create(){
-        return "Form create product";
+        return view('products.create');
     }
 }
