@@ -7,17 +7,17 @@ use Illuminate\Http\Request;
 class ProductsContreller extends Controller
 {
     function index(){
-        return 'List products';
+        return view('products.index');
     }
 
     function detail($id, $category = null){
 
         if ($category != null) {
-            return 'Detail products' . $id . "with category: ". $category;
-        }else {
-            return 'Detail products' . $id;
-        }
+            return view('products.detail', ['id'=> $id, 'category'=>$category]);
 
+        }else {
+            return view('products.detail', ['id'=> $id, 'category'=>""]);
+        }
     }
 
     function create(){
