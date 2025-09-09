@@ -7,9 +7,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/products', [ProductsContreller::class, 'index']);
+Route::prefix('products')->controller(ProductsContreller::class)->group(function () {
 
-Route::get('/products/create', [ProductsContreller::class, 'create']);
+    Route::get('/products', 'index');
 
-Route::get('/products/{id}/{category?}', [ProductsContreller::class, 'detail']);
+    Route::get('/products/create', 'create');
 
+    Route::get('/products/{id}/{category?}',  'detail');
+});
