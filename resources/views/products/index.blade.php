@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Productos - Tienda Online</title>
+    <title>Products - Online Store</title>
     <style>
         * {
             margin: 0;
@@ -62,7 +63,6 @@
         .product-image {
             width: 100%;
             height: 250px;
-            background: linear-gradient(45deg, #f8f9fa, #e9ecef);
             position: relative;
             display: flex;
             align-items: center;
@@ -70,21 +70,10 @@
             overflow: hidden;
         }
 
-        .product-image::before {
-            content: '';
-            position: absolute;
-            width: 120px;
-            height: 120px;
-            background: linear-gradient(45deg, #667eea, #764ba2);
-            border-radius: 50%;
-            opacity: 0.1;
-        }
-
-        .product-image::after {
-            content: '📦';
-            font-size: 4rem;
-            opacity: 0.4;
-            z-index: 1;
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         .product-info {
@@ -144,117 +133,118 @@
             transform: translateY(-2px);
             box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
         }
-
-        @media (max-width: 768px) {
-            .header h1 {
-                font-size: 2.5rem;
-            }
-
-            .products-grid {
-                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-                gap: 20px;
-            }
-
-            .product-info {
-                padding: 20px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .header h1 {
-                font-size: 2rem;
-            }
-
-            .products-grid {
-                grid-template-columns: 1fr;
-            }
-
-            body {
-                padding: 20px 10px;
-            }
-        }
     </style>
 </head>
+
 <body>
     <div class="container">
         <div class="header">
-            <h1>Nuestros Productos</h1>
-            <p>Descubre la mejor selección con calidad garantizada</p>
+            <h1>Our Products</h1>
+            <p>Discover the best selection with guaranteed quality</p>
         </div>
 
         <div class="products-grid">
+            <!-- Samsung -->
             <div class="product-card">
-                <div class="product-image"></div>
+                <div class="product-image">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSaJYX13zaTQ0oZZEt9Kvvu72gYglEki3NQeQ&s"
+                        alt="Galaxy S24 Ultra">
+                </div>
                 <div class="product-info">
                     <div class="product-category">Electronics</div>
                     <div class="product-brand">Samsung</div>
                     <h3 class="product-name">Galaxy S24 Ultra 256GB</h3>
-                    <p class="product-description">Smartphone premium con cámara de 200MP, pantalla Dynamic AMOLED 2X de 6.8" y S Pen integrado. Procesador Snapdragon 8 Gen 3 para máximo rendimiento.</p>
+                    <p class="product-description">Premium smartphone with 200MP camera, 6.8" Dynamic AMOLED 2X display,
+                        and integrated S Pen. Powered by Snapdragon 8 Gen 3 for top performance.</p>
                     <div class="product-price">$1,299.99</div>
-                    <button class="add-to-cart">Agregar al Carrito</button>
+                    <button class="add-to-cart">Add to Cart</button>
                 </div>
             </div>
 
+            <!-- Google Pixel -->
             <div class="product-card">
-                <div class="product-image"></div>
+                <div class="product-image">
+                    <img src="https://i.blogs.es/1cc524/img_1796/375_375.jpeg" alt="Google Pixel 8 Pro">
+                </div>
                 <div class="product-info">
-                    <div class="product-category">Sports & Footwear</div>
-                    <div class="product-brand">Nike</div>
-                    <h3 class="product-name">Air Max 270 React</h3>
-                    <p class="product-description">Zapatillas deportivas con tecnología Air Max para máxima comodidad. Diseño moderno y materiales de alta calidad para uso diario y deportivo.</p>
-                    <div class="product-price">$159.99</div>
-                    <button class="add-to-cart">Agregar al Carrito</button>
+                    <div class="product-category">Electronics</div>
+                    <div class="product-brand">Google</div>
+                    <h3 class="product-name">Pixel 8 Pro 256GB</h3>
+                    <p class="product-description">Flagship smartphone with Tensor G3 chip, 6.7" OLED display, advanced
+                        AI camera system, and smooth Android 14 experience.</p>
+                    <div class="product-price">$999.99</div>
+                    <button class="add-to-cart">Add to Cart</button>
                 </div>
             </div>
 
+            <!-- MacBook -->
             <div class="product-card">
-                <div class="product-image"></div>
+                <div class="product-image">
+                    <img src="https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/mbp14-silver-select-202310?wid=940&hei=1112&fmt=png-alpha&.v=1697037914549"
+                        alt="MacBook Pro M3">
+                </div>
                 <div class="product-info">
                     <div class="product-category">Computers</div>
                     <div class="product-brand">Apple</div>
                     <h3 class="product-name">MacBook Pro 14" M3</h3>
-                    <p class="product-description">Laptop profesional con chip M3, pantalla Liquid Retina XDR de 14.2", 16GB RAM y 512GB SSD. Perfecta para trabajo creativo y productividad.</p>
+                    <p class="product-description">Professional laptop with M3 chip, 14.2" Liquid Retina XDR display,
+                        16GB RAM and 512GB SSD. Perfect for creative work and productivity.</p>
                     <div class="product-price">$2,199.99</div>
-                    <button class="add-to-cart">Agregar al Carrito</button>
+                    <button class="add-to-cart">Add to Cart</button>
                 </div>
             </div>
 
+            <!-- Sony -->
             <div class="product-card">
-                <div class="product-image"></div>
+                <div class="product-image">
+                    <img src="https://m.media-amazon.com/images/I/71o8Q5XJS5L._AC_SL1500_.jpg" alt="Sony WH-1000XM5">
+                </div>
                 <div class="product-info">
                     <div class="product-category">Audio</div>
                     <div class="product-brand">Sony</div>
                     <h3 class="product-name">WH-1000XM5 Wireless</h3>
-                    <p class="product-description">Audífonos inalámbricos con cancelación de ruido líder en la industria. 30 horas de batería y calidad de sonido excepcional para audiófilos.</p>
+                    <p class="product-description">Wireless headphones with industry-leading noise cancellation. 30
+                        hours of battery life and exceptional sound quality for audiophiles.</p>
                     <div class="product-price">$399.99</div>
-                    <button class="add-to-cart">Agregar al Carrito</button>
+                    <button class="add-to-cart">Add to Cart</button>
                 </div>
             </div>
 
+            <!-- iPad -->
             <div class="product-card">
-                <div class="product-image"></div>
+                <div class="product-image">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ9zKhEqfGfvZ_rHG6OR1mbILkURGFAAAd_1A&s"
+                        alt="iPad Pro 12.9">
+                </div>
                 <div class="product-info">
-                    <div class="product-category">Home Appliances</div>
-                    <div class="product-brand">Dyson</div>
-                    <h3 class="product-name">V15 Detect Absolute</h3>
-                    <p class="product-description">Aspiradora inalámbrica con tecnología de detección láser. Potente motor digital y filtración avanzada para limpieza profunda del hogar.</p>
-                    <div class="product-price">$749.99</div>
-                    <button class="add-to-cart">Agregar al Carrito</button>
+                    <div class="product-category">Tablets</div>
+                    <div class="product-brand">Apple</div>
+                    <h3 class="product-name">iPad Pro 12.9" M2</h3>
+                    <p class="product-description">Powerful tablet with M2 chip, Liquid Retina XDR display, Apple Pencil
+                        2 support, and all-day battery life. Ideal for work and entertainment.</p>
+                    <div class="product-price">$1,099.99</div>
+                    <button class="add-to-cart">Add to Cart</button>
                 </div>
             </div>
 
+            <!-- LG TV -->
             <div class="product-card">
-                <div class="product-image"></div>
+                <div class="product-image">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSOl3zlbYgni6dOKVpHdZdk1EJWjLx0uLyJw&s"
+                        alt="LG OLED TV">
+                </div>
                 <div class="product-info">
-                    <div class="product-category">Fashion</div>
-                    <div class="product-brand">Levi's</div>
-                    <h3 class="product-name">501 Original Jeans</h3>
-                    <p class="product-description">Jeans clásicos de mezclilla 100% algodón con corte recto. Diseño atemporal y durabilidad legendaria que nunca pasa de moda.</p>
-                    <div class="product-price">$89.99</div>
-                    <button class="add-to-cart">Agregar al Carrito</button>
+                    <div class="product-category">Televisions</div>
+                    <div class="product-brand">LG</div>
+                    <h3 class="product-name">LG OLED evo 65"</h3>
+                    <p class="product-description">Next-gen OLED evo 4K Smart TV with self-lit pixels, Dolby Vision,
+                        Dolby Atmos, and AI processor for stunning picture and sound.</p>
+                    <div class="product-price">$2,499.99</div>
+                    <button class="add-to-cart">Add to Cart</button>
                 </div>
             </div>
         </div>
     </div>
 </body>
+
 </html>

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -264,6 +265,7 @@
         }
     </style>
 </head>
+
 <body>
     <div class="form-container">
         <div class="form-header">
@@ -276,28 +278,16 @@
                 <label class="form-label" for="productName">
                     Product Name<span class="required">*</span>
                 </label>
-                <input
-                    type="text"
-                    id="productName"
-                    name="productName"
-                    class="form-input"
-                    placeholder="Enter product name..."
-                    required
-                >
+                <input type="text" id="productName" name="productName" class="form-input"
+                    placeholder="Enter product name..." required>
             </div>
 
             <div class="form-group">
                 <label class="form-label" for="productBrand">
                     Brand<span class="required">*</span>
                 </label>
-                <input
-                    type="text"
-                    id="productBrand"
-                    name="productBrand"
-                    class="form-input"
-                    placeholder="Enter brand name..."
-                    required
-                >
+                <input type="text" id="productBrand" name="productBrand" class="form-input"
+                    placeholder="Enter brand name..." required>
             </div>
 
             <div class="form-group">
@@ -306,34 +296,18 @@
                 </label>
                 <div class="price-input-container">
                     <span class="price-symbol">$</span>
-                    <input
-                        type="number"
-                        id="productPrice"
-                        name="productPrice"
-                        class="form-input price-input"
-                        placeholder="0.00"
-                        step="0.01"
-                        min="0"
-                        required
-                    >
+                    <input type="number" id="productPrice" name="productPrice" class="form-input price-input"
+                        placeholder="0.00" step="0.01" min="0" required>
                 </div>
             </div>
 
             <div class="form-group">
                 <label class="form-label" for="productCategory">
-                    Price<span class="required">*</span>
+                    Category<span class="required">*</span>
                 </label>
                 <div class="category-input-container">
-                    <input
-                        type="number"
-                        id="productCategory"
-                        name="productCategory"
-                        class="form-input Category-input"
-                        placeholder="0.00"
-                        step="0.01"
-                        min="0"
-                        required
-                    >
+                    <input type="number" id="productCategory" name="productCategory" class="form-input Category-input"
+                        placeholder="Enter product category" required>
                 </div>
             </div>
 
@@ -341,27 +315,16 @@
                 <label class="form-label" for="productDescription">
                     Description<span class="required">*</span>
                 </label>
-                <textarea
-                    id="productDescription"
-                    name="productDescription"
-                    class="form-textarea"
-                    placeholder="Enter detailed product description..."
-                    required
-                ></textarea>
+                <textarea id="productDescription" name="productDescription" class="form-textarea"
+                    placeholder="Enter detailed product description..." required></textarea>
             </div>
 
             <div class="form-group">
                 <label class="form-label" for="productImage">
-                    Product Name<span class="required">*</span>
+                    Product Image<span class="required">*</span>
                 </label>
-                <input
-                    type="text"
-                    id="productImage"
-                    name="productImage"
-                    class="form-input"
-                    placeholder="Enter product image url"
-                    required
-                >
+                <input type="text" id="productImage" name="productImage" class="form-input"
+                    placeholder="Enter product image url" required>
             </div>
 
             <div class="form-buttons">
@@ -375,4 +338,5 @@
         </form>
     </div>
 </body>
+
 </html>

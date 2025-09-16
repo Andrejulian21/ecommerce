@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -45,20 +46,11 @@
             position: relative;
         }
 
-        .product-image::before {
-            content: '';
-            width: 200px;
-            height: 200px;
-            background: linear-gradient(45deg, #667eea, #764ba2);
-            border-radius: 15px;
-            opacity: 0.2;
-        }
-
-        .product-image::after {
-            content: '📱';
-            position: absolute;
-            font-size: 4rem;
-            opacity: 0.6;
+        .product-image img {
+            max-width: 90%;
+            max-height: 90%;
+            object-fit: contain;
+            z-index: 2;
         }
 
         .product-info {
@@ -178,20 +170,24 @@
         }
     </style>
 </head>
+
 <body>
     <div class="container">
         <div class="product-card">
             <div class="product-layout">
-                <div class="product-image"></div>
+                <div class="product-image">
+                    <img src="https://i.blogs.es/1cc524/img_1796/375_375.jpeg" alt="Google Pixel 8 Pro">
+                </div>
 
                 <div class="product-info">
                     <div class="product-category">Electronics</div>
-                    <div class="product-brand">Samsung</div>
-                    <h1 class="product-name">Galaxy S24 Ultra 256GB</h1>
-                    <div class="product-price">$1,299.99</div>
+                    <div class="product-brand">Google</div>
+                    <h1 class="product-name">Pixel 8 Pro 256GB</h1>
+                    <div class="product-price">$999.99</div>
                     <p class="product-description">
-                        Smartphone premium con cámara de 200MP, pantalla Dynamic AMOLED 2X de 6.8" y S Pen integrado.
-                        Procesador Snapdragon 8 Gen 3 para máximo rendimiento en gaming, fotografía profesional y productividad.
+                        Google's flagship smartphone with a Tensor G3 processor, a 6.7" 120Hz OLED display, and an
+                        AI-powered camera system for professional photos and videos.
+                        Smooth experience with Android 14 and guaranteed updates for 7 years.
                     </p>
                     <button class="buy-button">Comprar Ahora</button>
                 </div>
@@ -199,4 +195,5 @@
         </div>
     </div>
 </body>
+
 </html>
