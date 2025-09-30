@@ -11,7 +11,11 @@
             font-family: 'Arial', sans-serif;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
-            padding: 40px 20px;
+        }
+
+        .center-form-container {
+            min-height: 80vh;
+            /* Ajusta según el tamaño del navbar/footer */
             display: flex;
             align-items: center;
             justify-content: center;
@@ -262,7 +266,7 @@
 @endsection
 
 @section('content')
-    <div class='container'>
+    <div class='center-form-container'>
         <div class="form-container">
             <div class="form-header">
                 <h1>Add New Product</h1>
