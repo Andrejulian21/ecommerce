@@ -15,3 +15,7 @@ Route::prefix('products')->controller(ProductsContreller::class)->group(function
 
     Route::get('/{id}/{category?}',  'detail');
 });
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
