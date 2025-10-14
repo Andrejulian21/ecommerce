@@ -1,4 +1,5 @@
 @extends('layouts.app')
+
 @section('css')
     <style>
         * {
@@ -19,7 +20,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            
+
         }
 
         .form-container {
