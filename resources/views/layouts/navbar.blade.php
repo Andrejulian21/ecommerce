@@ -27,10 +27,14 @@
                         <a class="nav-link nav-link-custom btn-create" href="{{ url('/products/create') }}">Crear
                             Producto</a>
                     </li>
+
                 </ul>
 
                 <!-- Menú derecho (autenticación) -->
                 <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link nav-link-custom btn-create" href="{{ route('admin.index') }}">Admin</a>
+                    </li>
                     @guest
                         <li class="nav-item">
                             <a class="nav-link nav-link-custom" href="{{ route('login') }}">Iniciar Sesión</a>
