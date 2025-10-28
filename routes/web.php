@@ -24,4 +24,5 @@ use App\Http\Controllers\CategoryController;
 Route::prefix('admin')->controller()->group(function(){
     Route::get('/', [AdminController::class,'index'])->name('admin.index');
     Route::get('/categories',[ CategoryController::class,'create'])->name('admin.categories.create');
+    Route::post('/categories/store',[ CategoryController::class,'store'])->name('admin.categories.store');
 });
