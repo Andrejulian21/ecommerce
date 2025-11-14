@@ -22,4 +22,5 @@ Route::prefix('admin')->controller()->group(function(){
 
     
     Route::get('products/create', [ ProductsContreller::class,'create'])->name('admin.products.create');
+    Route::post('products/store', [ ProductsContreller::class,'store'])->name('admin.products.store');
 });

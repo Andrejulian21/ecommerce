@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\brand;
 use App\Models\Category;
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class ProductsContreller extends Controller
@@ -34,5 +35,20 @@ class ProductsContreller extends Controller
                 'categories' => $categories
             ]
         );
+    }
+
+    function store(Request $request)
+    {
+
+        $product = new Product();
+        $product->name = $request->get('productName');
+        $product->description = $request->get('productDescription'); 
+        $product->price = $request->get('productPrice');
+        $product->brand_id = $request->get('productBrand');
+        $product->category_id = $request->get('productCategory');      
+        
+        $product->save();
+
+        return "Product saved successfully";
     }
 }

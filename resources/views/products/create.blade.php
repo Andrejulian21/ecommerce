@@ -5,7 +5,8 @@
     <p class="text-sm text-muted">Fill in the details to add a new product to your store</p>
     <div class="card">
         <div class="card-body">
-            <form>
+            <form action="{{route('admin.products.store')}}" method="POST">
+                @csrf
 
                 {{-- Product Name --}}
                 <div class="input-group input-group-outline mb-3">
