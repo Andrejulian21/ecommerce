@@ -4,15 +4,9 @@ use App\Http\Controllers\ProductsContreller;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [ProductsContreller::class, 'index']);
+Route::get('products/{id}/{category?}', [ ProductsContreller::class,'detail']);
 
-Route::prefix('products')->controller(ProductsContreller::class)->group(function () {
 
-    Route::get('/','index');
-
-    Route::get('/create', 'create');
-
-    Route::get('/{id}/{category?}',  'detail');
-});
 
 Auth::routes();
 
@@ -25,4 +19,7 @@ Route::prefix('admin')->controller()->group(function(){
     Route::get('/', [AdminController::class,'index'])->name('admin.index');
     Route::get('/categories',[ CategoryController::class,'create'])->name('admin.categories.create');
     Route::post('/categories/store',[ CategoryController::class,'store'])->name('admin.categories.store');
+
+    
+    Route::get('products/create', [ ProductsContreller::class,'create'])->name('admin.products.create');
 });

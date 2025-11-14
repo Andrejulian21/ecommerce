@@ -13,8 +13,20 @@ class CategoryFactory extends Factory
     protected $model = Category::class;
     public function definition(): array
     {
+        $categories = [
+            'Phones', 
+            'Computers', 
+            'Accessories', 
+            'Wearables', 
+            'Audio', 
+            'Cameras', 
+            'Gaming', 
+            'Smart Home', 
+            'Drones', 
+            'Printers'];
+        
         return [
-            'name'=> fake()->name()
+            'name'=> $this->faker->randomElement($categories)
         ];
     }
 }

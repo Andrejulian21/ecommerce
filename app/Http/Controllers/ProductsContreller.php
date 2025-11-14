@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\brand;
+use App\Models\Category;
 use Illuminate\Http\Request;
 
 class ProductsContreller extends Controller
@@ -20,7 +22,17 @@ class ProductsContreller extends Controller
         }
     }
 
-    function create(){
-        return view('products.create');
+    function create()
+    {
+
+        $brands = brand::all();
+        $categories = Category::all();
+
+        return view('products.create',
+            [
+                'brands' => $brands,
+                'categories' => $categories
+            ]
+        );
     }
 }
