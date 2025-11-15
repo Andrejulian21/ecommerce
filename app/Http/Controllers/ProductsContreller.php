@@ -58,4 +58,9 @@ class ProductsContreller extends Controller
 
         return "Product saved successfully";
     }
+    public function table()
+    {
+        $products = Product::all();
+        return view('products.table', ['products' => $products]);
+    }
 }
