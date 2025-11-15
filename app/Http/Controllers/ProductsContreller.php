@@ -42,7 +42,7 @@ class ProductsContreller extends Controller
         request()->validate([
             'productName' => 'required|string|max:250',
             'productDescription' => 'required|string',
-            'productPrice' => 'required|numeric',
+            'productPrice' => 'required|numeric|min:0|max:999999.99',
             'productBrand' => 'required|exists:brands,id',
             'productCategory' => 'required|exists:categories,id'
         ]);
@@ -56,11 +56,11 @@ class ProductsContreller extends Controller
         
         $product->save();
 
-        return "Product saved successfully";
+        return redirect()->route('admin.products.table');
     }
     public function table()
     {
-        $products = Product::all();
+        $products = Product::orderBy('id', 'desc')->paginate(10);
         return view('products.table', ['products' => $products]);
     }
 }

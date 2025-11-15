@@ -5,6 +5,9 @@
     <p class="text-sm text-muted">Overview of all products in your store</p>
     <div class="card">
         <div class="card-body">
+
+            <a type="button" class="btn btn-primary" href="{{route('admin.products.create')}}">Add new product</a>
+
             <table class="table alingn-item-center mb-0">
                 <thead>
                     <tr>
@@ -34,6 +37,9 @@
                     @endforeach
                 </tbody>
             </table>
+            {{ $products->links() }}
+
+
         </div>
     </div>
 @endsection
