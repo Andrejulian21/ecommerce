@@ -9,14 +9,22 @@
                 @csrf
 
                 {{-- Product Name --}}
+                @error('productName')
+                    <span class="text-danger text-sm">{{$message}}</span>
+                @enderror
                 <div class="input-group input-group-outline mb-3">
                     <label for="productName" class="form-label">
                         Product Name <span class="text-danger">*</span>
                     </label>
-                    <input type="text" id="productName" name="productName" class="form-control">
+                    <input type="text" id="productName" name="productName" class="form-control" value="{{old('productName')}}">
+                    
                 </div>
+                
 
                 {{-- Brand --}}
+                @error('productBrand')
+                    <span class="text-danger text-sm">{{$message}}</span>
+                @enderror
                 <div class="input-group input-group-outline mb-3">
                     <select id="productBrand" name="productBrand" class="form-control">
                         <option value="" disabled selected>Select a brand</option>
@@ -27,14 +35,20 @@
                 </div>
 
                 {{-- Price --}}
+                @error('productPrice')
+                    <span class="text-danger text-sm">{{$message}}</span>
+                @enderror
                 <div class="input-group input-group-outline mb-3">
                     <label for="productPrice" class="form-label">
                         Price <span class="text-danger">*</span>
                     </label>
-                    <input type="number" id="productPrice" name="productPrice" class="form-control">
+                    <input type="number" id="productPrice" name="productPrice" class="form-control" value="{{old('productPrice')}}" step="0.01" min="0">
                 </div>
 
                 {{-- Category --}}
+                @error('productCategory')
+                    <span class="text-danger text-sm">{{$message}}</span>
+                @enderror
                 <div class="input-group input-group-outline mb-3">
                     <select id="productCategory" name="productCategory" class="form-control">
                         <option value="" disabled selected>Select a category</option>
@@ -46,11 +60,14 @@
                 </div>
 
                 {{-- Description --}}
+                @error('productDescription')
+                    <span class="text-danger text-sm">{{$message}}</span>
+                @enderror   
                 <div class="input-group input-group-outline mb-3">
                     <label for="productDescription" class="form-label">
                         Description <span class="text-danger">*</span>
                     </label>
-                    <textarea id="productDescription" name="productDescription" class="form-control" rows="4"></textarea>
+                    <textarea id="productDescription" name="productDescription" class="form-control" rows="4">{{old('productDescription')}}</textarea>
                 </div>
 
 
