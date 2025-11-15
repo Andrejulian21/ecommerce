@@ -13,11 +13,19 @@ class CategoryController extends Controller
     }
     public function store(Request $request)
     {
+        request()->validate([
+            'name' => 'required|string|max:250|unique:categories,name',
+        ]);
         Category::create([
             'name' => $request->get('name'),
         ]);
 
 
-        return "Se guardo chamo";
+        return redirect()->route('admin.categories.table');
+    }
+    public function table()
+    {
+        $categories = Category::orderBy('id', 'desc')->paginate(10);
+        return view('admin.categories.table', ['categories' => $categories]);
     }
 }

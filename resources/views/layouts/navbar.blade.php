@@ -23,11 +23,6 @@
                     <li class="nav-item">
                         <a class="nav-link nav-link-custom" href="{{ url('/products') }}">Productos</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link nav-link-custom btn-create" href="{{ url('/products/create') }}">Crear
-                            Producto</a>
-                    </li>
-
                 </ul>
 
                 <!-- Menú derecho (autenticación) -->

@@ -9,9 +9,22 @@ use Illuminate\Http\Request;
 
 class ProductsContreller extends Controller
 {
-    function index(){
-        return view('products.index');
+    function index(Request $request)
+{
+    $category = $request->get('category');
+
+    $query = Product::orderBy('id', 'desc');
+
+    if ($category) {
+        $query->where('category_id', $category);
     }
+
+    return view('products.index', [
+        'products' => $query->paginate(30),
+        'categories' => Category::all(),
+        'selectedCategory' => $category
+    ]);
+}
 
     function detail($id, $category = null){
 
