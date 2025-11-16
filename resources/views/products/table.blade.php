@@ -6,18 +6,23 @@
     <div class="card">
         <div class="card-body">
 
-            <a type="button" class="btn btn-primary" href="{{route('admin.products.create')}}">Add new product</a>
+            <a type="button" class="btn btn-primary" href="{{ route('admin.products.create') }}">Add new product</a>
 
             <table class="table alingn-item-center mb-0">
                 <thead>
                     <tr>
                         <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-center">ID</th>
                         <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-center">Name</th>
-                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-center">Brand</th>
-                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-center">Category</th>
-                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-center">Price</th>
-                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-center">Created</th>
-                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-center">Updated</th>
+                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-center">Brand
+                        </th>
+                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-center">Category
+                        </th>
+                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-center">Price
+                        </th>
+                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-center">Created
+                        </th>
+                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-center">Updated
+                        </th>
                         <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-center"></th>
 
                     </tr>
@@ -27,12 +32,24 @@
                         <tr>
                             <td class="aling-middle text-center">{{ $product->id }}</td>
                             <td class="aling-middle text-center">{{ $product->name }}</td>
-                            <td class="aling-middle text-center">{{ $product->brand_id}}</td>
-                            <td class="aling-middle text-center">{{ $product->category_id}}</td>
+                            <td class="aling-middle text-center">{{ $product->brand_id }}</td>
+                            <td class="aling-middle text-center">{{ $product->category_id }}</td>
                             <td class="aling-middle text-center">${{ number_format($product->price, 2) }}</td>
-                            <td class="aling-middle text-center">{{ $product->created_at}}</td>
-                            <td class="aling-middle text-center">{{ $product->updated_at}}</td>
-                            <td class="aling-middle text-center" > <a href="#" style="color: red;"> eliminar</a></td>
+                            <td class="aling-middle text-center">{{ $product->created_at }}</td>
+                            <td class="aling-middle text-center">{{ $product->updated_at }}</td>
+                            <td class="aling-middle text-center">
+                                <form action="{{ route('admin.products.delete', $product->id) }}" method="POST"
+                                    style="display:inline;"
+                                    onsubmit="return confirm('¿Seguro que deseas eliminar este producto?');">
+                                    @csrf
+                                    @method('DELETE')
+
+                                    <button type="submit" style="background:none;border:none;color:red;cursor:pointer;">
+                                        eliminar
+                                    </button>
+                                </form>
+                            </td>
+
                         </tr>
                     @endforeach
                 </tbody>

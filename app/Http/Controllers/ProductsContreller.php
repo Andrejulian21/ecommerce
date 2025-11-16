@@ -10,29 +10,29 @@ use Illuminate\Http\Request;
 class ProductsContreller extends Controller
 {
     function index(Request $request)
-{
-    $category = $request->get('category');
+    {
+        $category = $request->get('category');
 
-    $query = Product::orderBy('id', 'desc');
+        $query = Product::orderBy('id', 'desc');
 
-    if ($category) {
-        $query->where('category_id', $category);
+        if ($category) {
+            $query->where('category_id', $category);
+        }
+
+        return view('products.index', [
+            'products' => $query->paginate(30),
+            'categories' => Category::all(),
+            'selectedCategory' => $category
+        ]);
     }
 
-    return view('products.index', [
-        'products' => $query->paginate(30),
-        'categories' => Category::all(),
-        'selectedCategory' => $category
-    ]);
-}
-
-    function detail($id, $category = null){
+    function detail($id, $category = null)
+    {
 
         if ($category != null) {
-            return view('products.detail', ['id'=> $id, 'category'=>$category]);
-
-        }else {
-            return view('products.detail', ['id'=> $id, 'category'=>""]);
+            return view('products.detail', ['id' => $id, 'category' => $category]);
+        } else {
+            return view('products.detail', ['id' => $id, 'category' => ""]);
         }
     }
 
@@ -42,7 +42,8 @@ class ProductsContreller extends Controller
         $brands = brand::all();
         $categories = Category::all();
 
-        return view('products.create',
+        return view(
+            'products.create',
             [
                 'brands' => $brands,
                 'categories' => $categories
@@ -62,11 +63,11 @@ class ProductsContreller extends Controller
 
         $product = new Product();
         $product->name = $request->get('productName');
-        $product->description = $request->get('productDescription'); 
+        $product->description = $request->get('productDescription');
         $product->price = $request->get('productPrice');
         $product->brand_id = $request->get('productBrand');
-        $product->category_id = $request->get('productCategory');      
-        
+        $product->category_id = $request->get('productCategory');
+
         $product->save();
 
         return redirect()->route('admin.products.table');
@@ -75,5 +76,13 @@ class ProductsContreller extends Controller
     {
         $products = Product::orderBy('id', 'desc')->paginate(10);
         return view('products.table', ['products' => $products]);
+    }
+    public function delete($id)
+    {
+        $product = Product::findOrFail($id);
+        $product->delete();
+
+        return redirect()->route('admin.products.table')
+            ->with('success', 'Producto eliminado correctamente.');
     }
 }

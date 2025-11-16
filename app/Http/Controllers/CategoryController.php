@@ -28,4 +28,12 @@ class CategoryController extends Controller
         $categories = Category::orderBy('id', 'desc')->paginate(10);
         return view('admin.categories.table', ['categories' => $categories]);
     }
+    public function destroy($id)
+    {
+        $category = Category::findOrFail($id);
+        $category->delete();
+
+        return redirect()->route('admin.categories.table')
+            ->with('success', 'Categoría eliminada correctamente.');
+    }
 }

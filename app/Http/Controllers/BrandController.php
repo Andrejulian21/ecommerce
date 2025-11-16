@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 
 class BrandController extends Controller
 {
-        public function create()
+    public function create()
     {
         return view('admin.brands.create');
     }
@@ -27,5 +27,13 @@ class BrandController extends Controller
     {
         $brands = brand::orderBy('id', 'desc')->paginate(10);
         return view('admin.brands.table', ['brands' => $brands]);
+    }
+    public function destroy($id)
+    {
+        $brand = brand::findOrFail($id);
+        $brand->delete();
+
+        return redirect()->route('admin.brands.table')
+            ->with('success', 'Marca eliminada correctamente.');
     }
 }

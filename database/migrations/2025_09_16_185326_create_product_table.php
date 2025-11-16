@@ -18,8 +18,8 @@ return new class extends Migration
             $table->timestamps();
 
 
-            $table->foreignId('category_id')->references('id')->on('categories');
-            $table->foreignId('brand_id')->references('id')->on('brands');
+            $table->foreignId('category_id')->references('id')->on('categories')->onDelete('cascade');
+            $table->foreignId('brand_id')->references('id')->on('brands')->onDelete('cascade');
         });
     }
 
